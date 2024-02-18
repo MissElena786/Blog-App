@@ -1,0 +1,25 @@
+.main{
+  background-image:url("./assets/22615.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important ;
+}
+.header{
+  background-color: rgba(0, 0, 0, 0.511);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.hero{
+  background-color: rgba(255, 255, 255, 0.286);
+}
+.profile{
+  background-color: rgba(33, 31, 31, 0.889);
+  font-weight: bold;
+  color: white;
+}
+.started{
+  /* position: absolute; */
+ 
+  transform: translate(-50%, -50%);
+}
