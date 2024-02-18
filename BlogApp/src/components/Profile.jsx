@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "../app.css"
 import Navbar from './Navbar'
 import { useSelector } from 'react-redux'
 
