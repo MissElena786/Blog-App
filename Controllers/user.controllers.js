@@ -1,7 +1,7 @@
 import User from "../model/user.model.js"
 import fs from "fs"
 import AppError from "../utils/error.util.js";
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 
 
 const cookieOptions = {
