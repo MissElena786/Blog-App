@@ -5,43 +5,7 @@ dotenv.config()
 cookieParser()
 
 
-// const isLoggedIn = async (req,res, next)=>{
-//      const token  = req.cookies
-//    //   const token  = req.params
-//      if(!token){
-//       return res.status(500).json({
-//          success :false,
-//          message : "unauthenticated, please login again"
-//        })
-//      }
 
-//      const userDetails = await jwt.verify(token , process.env.JWT_SECRET )
-
-//      req.user = userDetails
-
-//      next()
-
-// }
-
-
-// const isLoggedIn = async (req, res, next) => {
-//    const token  = req.cookies;
-//    console.log(token)
-
-//    if (!token) {
-//       return res.status(500).json({
-//          success :false,
-//          message : "unauthenticated, please login again"
-
-//        })
-//    }
-
-//    const userDetails = await jwt.verify(token, `${process.env.JWT_SECRET}`);
-
-//    req.user = userDetails;
-
-//    next();
-// }
 const isLoggedIn = async (req, res, next) => {
    const token = req.body// Replace 'yourCookieName' with the actual cookie name
    console.log(token);
