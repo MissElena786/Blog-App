@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 function Profile() {
 
-  const state = useSelector((state)=> state?.auth?.data?.user)
+  const state = useSelector((state)=> state?.auth?.data?.user || state?.auth?.data)
   // console.log(state)
   return (
     <div className='main min-h-screen p-20 pt-40 flex justify-center '>

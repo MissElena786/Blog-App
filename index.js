@@ -2,13 +2,12 @@ import  express  from "express";
 import cors from 'cors'
 import dotenv from 'dotenv'
 import morgan from "morgan"
-// const PORT = process.env.PORT || 3000
 const PORT = process.env.PORT || 3000
 dotenv.config()
 import connectionToDB from "./config/dbConnection.js";
 import cookieParser from "cookie-parser";
 import Routes from "./Routes/routes.js";
-import path , { dirname} from "path";
+import path  from "path";
 // import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import BlogRoutes from "./Routes/.blogRoutes.js";
@@ -18,7 +17,6 @@ const app = express();
 // app.use(express.json());
 
 
-const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.resolve()
 
 
@@ -40,10 +38,14 @@ app.use(errorMiddleware);
 
 
 app.use(express.json()) //middleware to work with json data
-app.use(express.static(path.join(__dirname, './BlogApp/dist')));
+app.use(express.static(path.join(__dirname, 'BlogApp/dist')));
 
-app.get('*', function(req, res){
-    res.sendFile(path.join(__dirname, './BlogApp/dist/index.html'));
+// console.log('__dirname:', __dirname);
+// console.log('Resolved Static Path:', path.join(__dirname, 'BlogApp/dist'));
+// console.log('Resolved Index.html Path:', path.join(__dirname, 'BlogApp/dist/index.html'));
+
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, 'BlogApp/dist/index.html'));
 });
 
 

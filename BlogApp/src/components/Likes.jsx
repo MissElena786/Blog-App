@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Likes() {
 
-   const userId = useSelector((state) => state?.auth?.data?.user?.user_id);
+   const userId = useSelector((state) => state?.auth?.data?.user?.user_id || state?.auth?.data?.user_id );
    const [myLikeBlog, setMyLikeBlog] = useState([])
    const dispatch =  useDispatch()
    const navigate = useNavigate()

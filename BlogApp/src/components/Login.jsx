@@ -16,7 +16,6 @@ function Login() {
    const STATE = [
        localStorage.getItem("data", {}),
        localStorage.getItem("role", "")
-
    ]
 
    const [loginData, setLoginData] = useState({
@@ -73,11 +72,12 @@ function setCookie(name, value, daysToExpire) {
                <img src={girl} className='object-cover' alt="img" />
             </div>
 
-            <div className='flex items-center justify-center flex-col p-5 slate-500 w-[50%]'>
-               <h1 className=' md:text-4xl mb-6'>Login</h1>
-               <form onSubmit={onLogin} >
+            <div className='flex items-center justify-center bg-sky-900 flex-col p-5 slate-500 w-[50%]'>
+               <h1 className=' md:text-4xl mb-6 '>Login</h1>
+               <form onSubmit={onLogin} className='flex flex-col w-full item-center  justify-center' >
+                <div className='flex flex-col justify-center items-center'>
                <input type="email"
-                placeholder="email" className="input input-bordered input-sm w-full m-3 max-w-xs"
+                placeholder="email" className="input input-bordered input-sm w-full  mb-3 max-w-xs"
                 // required
                 name='email'
                 onChange={handleUserInput}
@@ -89,7 +89,8 @@ function setCookie(name, value, daysToExpire) {
                  onChange={handleUserInput}
                  value={loginData.password}
                type="password" placeholder="password" className="input input-bordered input-sm w-full max-w-xs" />
-               <button  className="btn btn-active  tracking-[0.1rem] lg:text-lg bg-sky-500 font-bold letter-space m-6 text-white hover:bg-sky-400 transition-all ease-in-out ">Login</button>
+               <button  className="btn  btn-active rounded  tracking-[0.1rem]  bg-sky-500 font-bold  m-6 text-white hover:bg-sky-400 transition-all ease-in-out ">Login</button>
+               </div>
                </form>
             </div>
          </div>

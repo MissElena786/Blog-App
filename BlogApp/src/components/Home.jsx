@@ -26,7 +26,7 @@ function Home() {
   const dispatch =  useDispatch ()
 
   const [previewImage, setPreviewImage] = useState("");
-  const userId = useSelector((state)=> state?.auth?.data?.user?.user_id)
+  const userId = useSelector((state)=> state?.auth?.data?.user?.user_id || state?.auth?.data?.user_id  )
   // console.log(userId)
 
   const [ blogData, setBlogData] = useState({
