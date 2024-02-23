@@ -17,7 +17,9 @@ const app = express();
 // app.use(express.json());
 
 
-const __dirname = path.resolve()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// const __dirname = path.resolve()
 
 
 app.use(express.json())
@@ -40,13 +42,29 @@ app.use(errorMiddleware);
 app.use(express.json()) //middleware to work with json data
 app.use(express.static(path.join(__dirname, 'BlogApp/dist')));
 
+
 // console.log('__dirname:', __dirname);
 // console.log('Resolved Static Path:', path.join(__dirname, 'BlogApp/dist'));
 // console.log('Resolved Index.html Path:', path.join(__dirname, 'BlogApp/dist/index.html'));
 
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'BlogApp/dist/index.html'));
+// app.get('/', function(req, res){
+//     res.sendFile(path.join(__dirname, 'BlogApp/dist/index.html'));
+// });
+// const filePath = path.join(__dirname, 'BlogApp/dist/index.html');
+
+app.get('/', function(req, res) {
+    const filePath = path.join(__dirname, 'BlogApp/dist/index.html');
+    console.log("....",filePath)
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.error('Error sending file:', err);
+            res.status(500).send('Internal Server Error');
+        }
+    });
 });
+
+// console.log('__filename:', filePath);
+
 
 
 
