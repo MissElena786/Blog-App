@@ -41,12 +41,7 @@ const uri = 'mongodb+srv://elena-of-coder:elenaofcoder@cluster0.7i6aag1.mongodb.
 
 const connectionToDB = async () => {
    try {
-      await mongoose.connect(process.env.DATABASE,
-         //  {
-         // useNewUrlParser: true,
-         // useUnifiedTopology: true,
-      // }
-      );
+      await mongoose.connect(process.env.DATABASE);
 
       const connection = mongoose.connection;
 
