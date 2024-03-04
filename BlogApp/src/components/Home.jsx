@@ -21,6 +21,7 @@ function Home() {
 
   const navigate = useNavigate()
   const blogs = useSelector((state)=> state?.blogs?.blogs)
+  const isLoggedIn = useSelector((state)=> state?.auth?.isLoggedIn)
   // console.log(blogs)
 
   const dispatch =  useDispatch ()
@@ -107,7 +108,7 @@ function Home() {
     <div className='main min-h-screen  p-20 pt-40 '>
       <main className='main relative'>
       <Navbar></Navbar>
-      <div className='hero p-10 pb-24 rounded mb-48 '>
+      <div className='hero p-10 pb-28 rounded mb-48 '>
         <h1 className='text-4xl' >This is an Blog Webb Application</h1>
         Blog webb application where you can write your blog and see others blogs.
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, rerum, odio beatae
@@ -120,7 +121,16 @@ function Home() {
           {/* <button className="  px-5 py-3 rounded  m-2 text-slate-900 font-bold border-none  bg-white  hover:bg-gray-300 transition-all ease-in-out">  CREATE BLOG <b>+</b></button> */}
 
           {/* The button to open modal */}
+         
+         {
+          isLoggedIn ? 
 <label htmlFor="my_modal_7" className="btn">CREATE BLOG</label>
+         
+         : 
+         <div className=''>
+           <h1 className='bg-red-300 rounded px-5 py-1'>please Signup and then login if you want to use our website and creating blogs</h1>
+         </div>
+         }
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my_modal_7" className="modal-toggle" />

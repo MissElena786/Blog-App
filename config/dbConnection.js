@@ -33,15 +33,20 @@
 
 
 import mongoose from "mongoose";
+import dotenv from "dotenv"
+dotenv.config()
 
-const uri = 'mongodb://127.0.0.1:27017/BlogDB';
+// const uri = 'mongodb://127.0.0.1:27017/BlogDB';
+const uri = 'mongodb+srv://elena-of-coder:elenaofcoder@cluster0.7i6aag1.mongodb.net/';
 
 const connectionToDB = async () => {
    try {
-      await mongoose.connect(uri, {
-         useNewUrlParser: true,
-         useUnifiedTopology: true,
-      });
+      await mongoose.connect(process.env.DATABASE,
+         //  {
+         // useNewUrlParser: true,
+         // useUnifiedTopology: true,
+      // }
+      );
 
       const connection = mongoose.connection;
 

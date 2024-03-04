@@ -28,17 +28,23 @@ function Navbar() {
          <ul className='flex'>
             <Link to="/"> <li className='m-2 text-blue-50 bg-slate-900 px-4 py-2  rounded'>Home</li></Link>
             <Link to="/about"> <li className='m-2  text-blue-50  bg-slate-900 px-4 py-2  rounded'>About</li></Link>
-            <Link> <li className='m-2  text-blue-50  bg-slate-900 px-4 py-2  rounded'>
-            <div className="dropdown dropdown-bottom dropdown-end">
-  <div tabIndex={0} role="button" className=" ">Your Activity</div>
-  <ul tabIndex={0} className="dropdown-content z-[1] menu text-black mt-3  shadow bg-base-100 rounded-xl min-w-auto">
-    <Link to="/profile "> <li><a>Profile</a></li></Link>
-    <Link to="/likes"><li><a>Likes</a></li></Link>
-    <Link to="/my-blogs "><li><a>MyBlogs</a></li></Link>
-    {/* <Link><li><a>comments</a></li></Link> */}
-  </ul>
-</div>
-    </li></Link>
+            {
+                  isLoggedIn && (
+                     <Link> <li className='m-2  text-blue-50  bg-slate-900 px-4 py-2  rounded'>
+             
+                     <div className="dropdown dropdown-bottom dropdown-end">
+           <div tabIndex={0} role="button" className=" ">Your Activity</div>
+           <ul tabIndex={0} className="dropdown-content z-[1] menu text-black mt-3  shadow bg-base-100 rounded-xl min-w-auto">
+             <Link to="/profile "> <li><a>Profile</a></li></Link>
+             <Link to="/likes"><li><a>Likes</a></li></Link>
+             <Link to="/my-blogs "><li><a>MyBlogs</a></li></Link>
+             {/* <Link><li><a>comments</a></li></Link> */}
+           </ul>
+         </div>
+             </li></Link>
+                  )
+               }
+
          </ul>
        
       </div>
